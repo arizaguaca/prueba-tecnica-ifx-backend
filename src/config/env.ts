@@ -11,4 +11,8 @@ export const config = {
     password: process.env.DB_PASSWORD || 'Kool1010',
     database: process.env.DB_NAME || 'ifx_vms',
   },
+  jwt: {
+    secret: process.env.JWT_SECRET || 'secret',
+    expiresIn: '24h',
+  },
 };

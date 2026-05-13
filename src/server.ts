@@ -1,7 +1,11 @@
+import { createServer } from 'http';
 import app from './app';
 import { config } from './config/env';
 import { testConnection } from './infrastructure/database/mysql';
 import { initDb } from './infrastructure/database/init';
+import { SocketService } from './infrastructure/socket/socket-service';
+
+const httpServer = createServer(app);
 
 const startServer = async () => {
   try {
@@ -9,7 +13,10 @@ const startServer = async () => {
     await initDb();
     await testConnection();
 
-    app.listen(config.port, () => {
+    // Socket.io Initialization
+    SocketService.init(httpServer);
+
+    httpServer.listen(config.port, () => {
       console.log(`[server]: Server is running at http://localhost:${config.port}`);
       console.log(`[server]: Environment: ${config.nodeEnv}`);
     });

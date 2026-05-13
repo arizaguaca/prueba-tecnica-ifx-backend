@@ -1,8 +1,11 @@
 import { Router } from 'express';
 
+import vmRoutes from './vm-routes';
+import authRoutes from './auth-routes';
+
 const router = Router();
 
-// VM Routes will be registered here
-// router.use('/vms', vmRouter);
+router.use('/vms', vmRoutes);
+router.use('/auth', authRoutes);
 
 export default router;
