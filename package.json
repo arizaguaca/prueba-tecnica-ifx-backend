@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "lint": "eslint 'src/**/*.ts'",
-    "format": "prettier --write 'src/**/*.ts'"
+    "format": "prettier --write 'src/**/*.ts'",
+    "db:setup": "ts-node src/infrastructure/database/setup-db.ts"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
-    "morgan": "^1.10.1"
+    "morgan": "^1.10.1",
+    "mysql2": "^3.22.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
