@@ -7,8 +7,9 @@ export class SocketService {
   static init(server: HttpServer): SocketServer {
     this.instance = new SocketServer(server, {
       cors: {
-        origin: '*', // Adjust for production
+        origin: 'http://localhost:5173',
         methods: ['GET', 'POST'],
+        credentials: true,
       },
     });
 

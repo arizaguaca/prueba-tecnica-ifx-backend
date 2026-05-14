@@ -34,21 +34,33 @@ sequenceDiagram
 
 ## 🛠️ Guía de Despliegue Local
 
-1. **Prerrequisitos**: Node.js v18+ y una instancia de MySQL.
+1. **Prerrequisitos**: 
+   - **Node.js v18+**
+   - **MySQL Server**: Es **obligatorio** tener una instancia de MySQL en ejecución para el funcionamiento del backend.
+
 2. **Configuración**:
    ```bash
    cp .env.example .env
-   # Edita el .env con tus credenciales de MySQL
+   # IMPORTANTE: Edita el .env con tus credenciales de MySQL (DB_HOST, DB_USER, DB_PASSWORD, etc.)
    ```
+
 3. **Instalación**:
    ```bash
    npm install
    ```
-4. **Base de Datos & Seed**:
+
+4. **Base de Datos & Seed (Obligatorio)**:
+   El proyecto requiere una base de datos con registros iniciales. Puedes usar el script automático o el archivo SQL manual:
+   
+   **Opción A (Recomendada):**
    ```bash
-   # Crea la DB, las tablas e inserta 5 VMs de ejemplo
+   # Este comando crea la base de datos, las tablas e inserta exactamente 5 registros iniciales
    npm run db:setup
    ```
+   
+   **Opción B (Manual):**
+   Importa el archivo `database.sql` incluido en la raíz del proyecto en tu cliente de MySQL.
+
 5. **Ejecución**:
    ```bash
    npm run dev
